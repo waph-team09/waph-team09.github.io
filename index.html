@@ -1,44 +1,192 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>WAPH-Team09</title>
-</head>
-<body>
-    <h1>WAPH-Web Application Programming and Hacking</h1>
-    <h2>Instructor: Dr. Phu Phung</h2>
-
-    <h1>Waph-team09</h1>
-
-    <h2>Team members</h2>
-    <ol>
-        <li>Saiteja Alapati, alapatsj@mail.uc.edu</li>
-        <li>Sushma Sai Vejandla, vejandsi@mail.uc.edu</li>
-        <li>Indu Priya Inala, inalaia@mail.uc.edu</li>
-        <li>Sai Kumar Kolleti, Kolletsr@mail.uc.edu</li>
-    </ol>
-
-    <h1>Overview of this project:</h1>
-    <p>The WAPH Team Project prioritizes full-stack web development technologies and applies secure programming and hacking methods in order to construct a "miniFacebook" web application. Agile development methodologies will be followed throughout the project to guarantee effective iterations and evolution.</p>
-
-    <h2>Team Leader :</h2>
-    <img src="images/saiteja.jpg" alt="Saiteja's headshot">
-    <h3>Saiteja Alapati</h3>
-    <p><b>Portfolio Link:</b> <a href="https://saialapati00.github.io/">https://saialapati00.github.io/</a></p>
-
-    <h2>Team Member 1 :</h2>
-    <img src="images/sushma.jpg" alt="Sushma's headshot">
-    <h3>Sushma Sai Vejandla</h3>
-    <p><b>Portfolio Link:</b> <a href="https://vejandsi.github.io/">https://vejandsi.github.io/</a></p>
-
-    <h2>Team Member 2 :</h2>
-    <img src="images/indu.jpg" alt="Indu Priya's headshot">
-    <h3>Indu Priya Inala</h3>
-    <p><b>Portfolio Link:</b> <a href="https://indhupriyainala.github.io/">https://indhupriyainala.github.io/</a></p>
-
-    <h2>Team Member 3 :</h2>
-    <img src="images/saikumar.jpg" alt="Sai Kumar's headshot">
-    <h3>Sai Kumar Kolleti</h3>
-    <p><b>Portfolio Link:</b> <a href="https://saikumarkolleti.github.io/">https://saikumarkolleti.github.io/</a></p>
-</body>
-</html>
+<h1 id="waph-web-application-programming-and-hacking">WAPH-Web Application Programming and Hacking</h1>
+<h2 id="instructor-dr-phu-phung">Instructor: Dr. Phu Phung</h2>
+<h1 id="project-topic-title">Project Topic/Title</h1>
+<h1 id="team-members">Team members</h1>
+<ol>
+<li>Saiteja Alapati, alapatsj@mail.uc.edu</li>
+<li>Sushma Sai Vejandla, vejandsi@mail.uc.edu</li>
+<li>Indu Priya Inala, inalaia@mail.uc.edu</li>
+<li>Sai Kumar Kolleti, Kolletsr@mail.uc.edu</li>
+</ol>
+<h1 id="project-management-information">Project Management Information</h1>
+<p>Source code repository (private access): <a href="https://github.com/waph-team09">https://github.com/waph-team09</a></p>
+<p>Project homepage (public): <a href="https://waph-team09.github.io">https://waph-team09.github.io</a></p>
+<h2 id="revision-history">Revision History</h2>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th style="text-align:center">Version</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03/27/2024</td>
+<td style="text-align:center">0.1</td>
+<td style="text-align:right">Init draft</td>
+</tr>
+<tr>
+<td>03/31/2024</td>
+<td style="text-align:center">0.2</td>
+<td style="text-align:right">Sprint 1</td>
+</tr>
+<tr>
+<td>04/15/2024</td>
+<td style="text-align:center">0.3</td>
+<td style="text-align:right">Sprint 2</td>
+</tr>
+<tr>
+<td>04/23/2024</td>
+<td style="text-align:center">0.4</td>
+<td style="text-align:right">Sprint 3</td>
+</tr>
+</tbody>
+</table>
+<h1 id="overview">Overview</h1>
+<p>This project focuses on creating a &quot;miniFacebook&quot; while implementing popular security measures to prevent security holes leading to vulnerabilities.</p>
+<p>For Sprint 0, we have created the repositories and have generated the ssl keys and setup the html on our systems. We also created a database for this project aswell.</p>
+<p>For Sprint 1, we have covered the necessary features for a web application that involves user management, displaying the content, and laying the foundation for future development.</p>
+<p>For Sprint 2, we have worked together to create the pages and code that will enable the user to create new posts and then also allows the owner to modify their posts. We also allowed other users to add comments to the posts. </p>
+<p>For Sprint 3, We have created a new form for superusers, when they login, they have access to the user table and can enable and disable a user. A disabled user cannot log in.</p>
+<h1 id="system-design">System Design</h1>
+<h2 id="database">Database</h2>
+<p>Created Tables for users,posts, comments, superusers, messages, sends, received</p>
+<h1 id="implementation">Implementation</h1>
+<p>In Sprint 1, we have created a page where users can change their password. We have also decided to make the user enter their old password as a security feature. </p>
+<p>We have a view/edit profile page where onload will display the users fullname and phone number if it is present in the database. They can easily change this data and submit the form whenever they want to change/update the details.</p>
+<p>We have implemented a simple code to fetch posts that are in the database and display them. Since we haven&#39;t implemented a code to add new posts, now it only displays &quot;no posts available&quot;.</p>
+<h1 id="security-analysis">Security Analysis</h1>
+<p>Authentication: We have created a form for the users to login with their credentials (i.e username and password)</p>
+<p>Session Management and Highjacking Protection: For ease of use, we decided to have session tracking so that the user need not login everytime they visit the website, to enable better protection from this hackers, we decide to also apply the following parameters to enable better protection against hackers <code>session_set_cookie_params(900,&quot;/&quot;,&quot;waph-team09.minifacebook.com&quot;,TRUE,TRUE);</code>.</p>
+<p>To protect against session highjacking attacks, we decided to store the ip address and the user&#39;s user agent to validate the session.</p>
+<p>XSS Protection: We have used htmlentities to protect our code from XSS attacks.</p>
+<p>SQL Injection Protection: We have decided to use prepared statements when executing sql queries to better protect ourselves from sql injection attacks.</p>
+<p>To seperate the roles of super users and regular users we have created a new table called superusers which has a list of all the superusers.</p>
+<p>To protect against CSRF attacks, we have implemented necessary prevention techniques against them.</p>
+<h1 id="demo">Demo</h1>
+<h3 id="new-account-registration-and-login">New Account Registration and Login</h3>
+<p>We have a webpage <strong>registrationform.php</strong> where a new user can create an account for the webapp. For user account creation we decided to only require an email, username and password for creation and make the user enter the rest of the details after logging in through their profile page. This makes the whole registration setup much faster.</p>
+<p><img src="/images/sprint1-1.png" alt="New User Registration"></p>
+<p>Here is the testuser account being logged in.</p>
+<p><img src="/images/sprint1-2.png" alt="New User LoggedIn"></p>
+<h3 id="superuser-can-disable-an-account">Superuser can disable an account</h3>
+<p>We have created a table which shows user table data along with a button to enable/disable the user.</p>
+<p><img src="/images/sprint3-1.png" alt="Admin Panel"></p>
+<h4 id="the-disabled-account-cannot-log-in">The Disabled Account Cannot Log In</h4>
+<p>Now we have disabled the admin user and when the account is disabled they cannot log in.</p>
+<p><img src="/images/sprint3-2.png" alt="Account Disabled"></p>
+<h4 id="superuser-can-enable-the-disabled-account">Superuser can enable the disabled account</h4>
+<p>Now after clicking the disable button, it changes to a enable button. Clicking this results in the account being enabled.</p>
+<p><img src="/images/sprint3-4.png" alt="Admin Account Enabled"></p>
+<h4 id="the-enabled-user-can-log-in">The enabled user can log in</h4>
+<p>Now going back to the regular user login page, the account can now signin again.</p>
+<p><img src="/images/sprint3-5.png" alt="Account Signin"></p>
+<h3 id="post-editing-deletion">Post Editing &amp; Deletion</h3>
+<p>We have made it so that only the user who has created the post can edit or delete their post.</p>
+<p><img src="/images/sprint2-1.jpeg" alt="Logged in user"></p>
+<p>Here is the same post as seen with a different user.</p>
+<p><img src="/images/sprint2-2.jpeg" alt="Post from other user"></p>
+<h3 id="csrf-protection-for-deletion-of-post-">CSRF Protection for deletion of post.</h3>
+<p>We decided to also send the csrf token as a get variable when we click on edit or delete post. This token can be seen in the url. We can simulate a csrf attack when we remove the csrf token from the url.</p>
+<p><img src="/images/sprint2-3.jpeg" alt="Delete post without token"></p>
+<p>After visiting the above url. We get the following saying that a CSRF attack has been detected.</p>
+<p><img src="/images/sprint2-4.jpeg" alt="CSRF Detected"></p>
+<h3 id="a-regular-logged-in-user-cannot-access-the-link-for-superusers">A regular logged-in user cannot access the link for superusers</h3>
+<p>We have used the piece of code to check if the user is a superuser or not.</p>
+<pre><code class="lang-php"><span class="hljs-keyword">if</span> (!isset(<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">'superuser'</span>])) {
+    echo <span class="hljs-string">"&lt;script&gt;alert('You are not a SuperUser');window.location='form.php';&lt;/script&gt;"</span>;
+    <span class="hljs-keyword">exit</span>();
+}
+</code></pre>
+<p>Going to sudo folder&#39;s index.php as a regular gets us the alert box and redirects them to the admin login page.</p>
+<p><img src="/images/sprint3-6.png" alt="SUDO Index.php locked to outsiders"></p>
+<h1 id="software-process-management">Software Process Management</h1>
+<h2 id="scrum-process">Scrum process</h2>
+<h3 id="sprint-0">Sprint 0</h3>
+<p>Using the Scrum methodology, our team prioritizes teamwork, flexibility, and clear communication in the software development process. Sprint 0 is the first step in the project, an essential step that establishes the strong foundation required for the project to succeed. In order to maximize productivity within the team, each team member is given clear, defined roles throughout this phase.</p>
+<p>Establishing GitHub, which serves as a main focus to greatly improve our collaboration efforts, is the first move taken by leader. This platform is about more than just coordinating our work; it&#39;s about establishing an atmosphere where all team members actively participate in developing the infrastructure of the project. Everybody&#39;s contribution is crucial, from creating fundamental web frameworks with index.html files towards setting up individual repository and creating documentation like README.md files. The collaborative atmosphere is set by these early contributions, which are important.</p>
+<p>The foundations of our work are interaction and collaboration. We commit to maintain a high standard of interaction in both group project and individual activities. Regular discussions serve as the main thing of our project, providing platforms where we can openly discuss our progress, meet and overcome challenges and carefully consider our next course of action. This constant communication makes sure that everyone is on the same path regarding the project&#39;s objectives and that any new problems can be quickly resolved.</p>
+<p>Through dedication to Scrum principles and the cultivation of an environment that values collaboration beyond support, we are able to effectively handle the complexities that come with software development. This methodology not only maintains our flexibility and responsiveness but also delivers results that are of excellent quality. Our team sets the bar for success in our projects by navigating the challenging world .</p>
+<p>Duration: 03/19/2024-03/27/2024</p>
+<h4 id="completed-tasks-">Completed Tasks:</h4>
+<ol>
+<li>Created the Public and Private Repo</li>
+<li>Created the README.md Template to the private repo</li>
+<li>Added the index.php template to the public repo</li>
+<li>Created the team SSL files and HTTPS has been set up on each of our systems</li>
+<li>Created and implemneted the team database</li>
+<li>Implemented form.php and index.php from lab 3 and used what we learnt from lab 4 and implemented that to index.php </li>
+</ol>
+<h3 id="sprint-1">Sprint 1</h3>
+<h4 id="completed-tasks-">Completed Tasks:</h4>
+<ol>
+<li>We have created a database for the application which includes initial design for the users to log into their accounts, authentication details, posts.</li>
+<li>We have implemented a functionality that allows new user registration.</li>
+<li>Once the users are logged in, they can change their password which involves the update of authentication credentials securely in the database.</li>
+<li>Logged in users can edit their information such as adding/modifying their name and phone number which results the update in database.</li>
+<li>We have enabled the logged in users to view posts in the database. We set it in a way to retrieve posts from database and display to user.</li>
+<li>Used bootstrap to prettify the code. </li>
+</ol>
+<p>Duration: 03/28/2024-03/31/2024 </p>
+<h4 id="sprint-retrospection-">Sprint Retrospection:</h4>
+<p>When we were working in sprint 1, we have decided to split the tasks among the teammates where member-2 worked on creating a new tables and updating existing tables to match current requirments. The leader of the team worked on the actual code for creating new user, changing users password, adding/modifying their profile and to view the posts. Members 3 and 4 worked on implementing bootstrap css pages.</p>
+<p>We began to seperate all the mysql related codes to database.php and then include/require this file to all the subsequent files. While working on this, we met with a problem where there were 2 cookies being generated causing errors in major areas in the code, after alot of troubleshooting (&quot;Thank you debug_to_console function&quot;) we discovered that when we placed <code>require &#39;database.php&#39;;</code> in the first line of index.php, it caused the session to be started first within the database.php and another cookie to be generated in the index.php. This was fixed after we moved <code>require &#39;database.php&#39;;</code> after <code>session_start()</code> in index.php.</p>
+<p>Later on, when working on the css for the files, one of the teammates made a mistake and combined both the changepassword.php and changepasswordform.php, the major reason for this was due to similarity in the file name, this made us realise that from nowonwards its better to have distinct filenames to avoid confusion.</p>
+<h3 id="sprint-2">Sprint 2</h3>
+<h4 id="completed-tasks">Completed Tasks</h4>
+<ol>
+<li>We created a new page <code>newpost.php</code> where logged in users can create a new post.</li>
+<li>Adding to the previously created <code>viewposts.php</code>, we also made changes to make it in a way that only the post owner can see the buttons for edit &amp; delete post whereas everyone can see the view comments button.</li>
+<li>In the <code>viewcomments.php</code> we have made it so that the user can see all comments and also can add a new comment.</li>
+</ol>
+<h4 id="sprint-retrospection">Sprint Retrospection</h4>
+<p>We first began this sprint with going over what we have learnt in individual project 2 and implementing those changes to the code. This included the requirements for password and also creating a new confirm password field which checks if both the passwords are the same. We also changed the CSS to a much better version.</p>
+<p>We then began tackling another problem we were facing in the older sprint that was the session_auth.php. It was a bit unstable as when ever the file is accessed a new session is created and this made some problems, so we divided the session_auth into various functions so that each function will do a certain task. These tasks include creating a new session, regerating a session, authenticate a session, validate a session and to close the session. This made for a much better and a modular experience working with session_auth.</p>
+<p>We then began working on the requirements of this sprint and first created a new page where a user can create a new post. This was pretty straight forward as we already laid the foundation for this because we already made the necessary sql tables in the previous sprint. we created a new function in database.php called it addPost and made it execute the necessary query.</p>
+<p>We then began with dealing with the editing and deleting the posts. The codes for these were somewhat easy to create, there were some hiccups that we faced when creating the edit profile, but we able to successfully create both the functionalities. </p>
+<p>Coming to the comments part, we had to first display the post on top and then proceeded with displaying the comments that are related to that certain post. To add new comments, we initially added a field to ask for name of the commentor, but we decided against it as we can get the name automatically from the user&#39;s table. To this we just added a new hidden input which also sends the user&#39;s username. It was decided to ditch multiple php files for frontend and backend and decided to just include the database calling in the same file.</p>
+<p>Then we decided to add various css to the webpages and That concludes this sprint 2.</p>
+<h3 id="sprint-3">Sprint 3</h3>
+<h4 id="completed-tasks">Completed Tasks</h4>
+<ol>
+<li>We created a new folder <code>sudo</code> which can be used for admin access for the webpage</li>
+<li>Reworked superusers table to make using it much easier.</li>
+<li>Created a login page for superusers.</li>
+<li>Created a index page for superuser, which lists all the user details and also button to enable/disable user.</li>
+<li>Only Enabled Users can login.</li>
+</ol>
+<h4 id="sprint-retrospection">Sprint Retrospection</h4>
+<p>To start this sprint, we first began with creating a new folder called sudo, calling it admin felt too common and how we called admins superusers, and me being a linux user made sudo much more appropriate. We then copied form.php to the sudo folder and created a new index.php. along with a copy of database.php and session_auth.php but changed their name to include a sudo in front so they are now named sudodatabase.php and sudosession_auth.php.</p>
+<p>For the database.php, we had to basically remove most of the old functions and we now created new functions for the actions for sudo, these include sudologin (login function for superuser), getUserList (fetches data from the users table), disable/enable user (pretty straightforward).</p>
+<p>For sudosession_auth.php, we pretty much used the same code, but made changes to the path so that the cookie is used for the <code>/sudo</code> path. we also renamed the functions to mention sudo in them.</p>
+<p>Then we proceeded with the index.php for sudo, this was pretty easy to begin with. We first started with the session management part of the index.php for the regular user but changed to use the new functions. We also created a new variable called users which stores all the data from the user table. Since we are not using any other functions, we decided to only display the user table along with a button to enable/disable them. To end this, we also decided to add a logout.php and just copied the logout.php from the other page.</p>
+<p>We also created a enableuser.php and disableuser.php which would do their afformentioned tasks. The request used here was a GET request as this allows us to send the data through a url and there is no need for a form.</p>
+<p> Working on the above tasks, took up most of our time and we decided to skip over the real time chat system for this project.</p>
+<h1 id="appendix">Appendix</h1>
+<p>We are including the content (in text, not as images) of the SQL files and all source code of our PHP files here–</p>
+<p><strong>Click on the filenames below to access them in github.</strong></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/database.php">database.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/form.php">form.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/index.php">index.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/registrationform.php">registrationform.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/addnewuser.php">addnewuser.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/viewposts.php">viewposts.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/changepasswordform.php">changepasswordform.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/changepassword.php">changepassword.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/editprofile.php">editprofile.php</a></p>
+<p><strong>New Files Added for Sprint 2</strong></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/createnewpost.php">createnewpost.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/deletepost.php">deletepost.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/editpost.php">editpost.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/newpost.php">newpost.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/viewcomments.php">viewcomments.php</a></p>
+<p><strong>New Files Added for Sprint 3</strong></p>
+<p><em>SUDO Folder</em></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/sudo/form.php">form.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/sudo/index.php">index.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/sudo/disableuser.php">disableuser.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/sudo/enableuser.php">enableuser.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/sudo/logout.php">logout.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/sudo/sudodatabase.php">sudodatabase.php</a></p>
+<p><a href="https://github.com/waph-team09/waph-teamproject/blob/main/waph-teamproject-folder/sudo/sudosession_auth.php">sudosession_auth.php</a></p>

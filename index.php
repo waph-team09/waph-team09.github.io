@@ -1,84 +1,104 @@
 <?php
-	session_set_cookie_params(900,"/","waph-team09.minifacebook.com",TRUE,TRUE);
-	session_start();    
-	if(isset($_POST["username"]) and isset($_POST["password"])){
-		debug_to_console($_POST["username"]);
-		debug_to_console($_POST["password"]);
-		if (checklogin_mysql($_POST["username"],$_POST["password"])) {
-			debug_to_console("1");
-			session_destroy();
-			session_set_cookie_params(900,"/","waph-team09.minifacebook.com",TRUE,TRUE);
-			session_start();
-			session_regenerate_id(true);
-			$_SESSION["authenticated"] = TRUE;
-			$_SESSION["username"] = $_POST["username"];
-			$_SESSION['browser_metadata'] = $_SERVER['HTTP_USER_AGENT'];
-			$_SESSION['ip_address'] = $_SERVER["REMOTE_ADDR"];
 
-	
-		}else{
-			debug_to_console("2");
-			session_destroy();
-			echo "<script>alert('Invalid username/password');window.location='form.php';</script>";
-			die();
+require 'session_auth.php';
+require 'database.php';
 
-		}
-	}
-	if(!isset($_SESSION["authenticated"]) or $_SESSION["authenticated"] != TRUE) {
-		debug_to_console("3");
-		session_destroy();
-		echo "<script>alert('You are not authorised. Press Ok to LOGIN.');</script>";
-		header("Refresh:0; url=form.php");
-		die();
-	}
-	else{
-		debug_to_console("Successful Login");
-	}
-	if($_SESSION['browser_metadata'] !== $_SERVER['HTTP_USER_AGENT'] or $_SESSION['ip_address'] != $_SERVER["REMOTE_ADDR"]){
-		debug_to_console("4");
-		echo "<script>alert('Session Hijacking Detected');</script>";
-		header("Refresh:0; url=form.php");
-		die();
+createnewsession();
 
-	}
-	function debug_to_console($data) {
-    $output = $data;
-    if (is_array($output))
-        $output = implode(',', $output);
 
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+if (isset($_POST["username"]) and isset($_POST["password"])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $loginResult = checklogin_mysql($username, $password);
+
+    if ($loginResult === true) {
+        regenerateSession();
+        authenticatesession($_POST["username"]);
+        $_SESSION['user_id']=getuserid($_POST["username"]);
+        $_SESSION['fullname']=getName($_POST["username"]);
+        debug_to_console("Session Authenticated");
+    } else {
+        session_destroy();
+        echo "<script>alert('$loginResult');window.location='form.php';</script>";
+        die();
+    }
 }
-	    function checklogin_mysql($username, $password) {
-			debug_to_console("ABC");
-			$mysqli = new mysqli('localhost',
-									'waph09' /*Database username*/,
-									'alapatsj' /*Database password*/,
-									'waphteam09' /*Database name*/);
-									debug_to_console("DEF");
-			if($mysqli->connect_errno){
-				printf("Database Connection Failed %s\n",$mysqli->connect_error);
-				exit();
-			}
-			
-			debug_to_console("5");
-			$prepsql = "SELECT * FROM users WHERE username= ? AND password = md5(?);";
-			$stmt = $mysqli->prepare($prepsql);
-			$stmt->bind_param("ss",$username,$password);
-			$stmt->execute();
-			$result = $stmt->get_result();
-	
-
-			if ($result->num_rows ==1) {
-				debug_to_console("6");
-			  	return TRUE;}
-			else {
-				debug_to_console("7");
-			  	return FALSE;
-				printf("Database Connection Failed %s\n",$mysqli->connect_error);
-				exit();}
-			}
-
-	
+validatesession();
+// get_session_values();
 ?>
-<h2> Welcome <?php echo htmlentities($_SESSION['username']); ?> !</h2>
-<a href = "logout.php">Logout</a>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #8fbc8f;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #f0fff0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            color: #212529;
+            text-align: center;
+            vertical-align: middle;
+            user-select: none;
+            background-color: transparent;
+            border: 1px solid transparent;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: .25rem;
+            text-decoration: none; 
+        }
+        .btn-primary {
+            color: black;
+            background-color: #fa8072;
+            border-color: #007bff;
+        }
+        .btn-danger {
+            color: black;
+            background-color: #6b8e23;
+            border-color: #dc3545;
+        }
+        .text-right {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Welcome <?php echo htmlentities($_SESSION['username']); ?>!</h2>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <a href="newpost.php" class="btn btn-primary mr-2">Add New Post</a>
+                <a href="viewposts.php" class="btn btn-primary mr-2">View User Posts</a>
+                <a href="changepasswordform.php" class="btn btn-primary mr-2">Change Password</a>
+                <a href="editprofile.php" class="btn btn-primary mr-2">Edit Your Profile</a>
+                <div class="text-right">
+                    <a href="logout.php" class="btn btn-danger">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

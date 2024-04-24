@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>WAPH-Login page</title>
+  <title>WAPH-Admin Login</title>
   <style>
       body {
           font-family: 'Times New Roman', Times, serif;
@@ -76,7 +76,7 @@
 <body>
   <div class="container">
       <img src="https://i.pinimg.com/736x/e0/b4/06/e0b40685ef41854b70398562f5dd7724.jpg" alt="Mini Facebook Logo" class="logo">
-      <h1>Team 9 Mini Facebook Login</h1>
+      <h1>Team 9 Admin Login</h1>
 
       <div id="digit-clock"></div>  
 
@@ -97,7 +97,6 @@
         <button class="btn btn-primary" type="submit">Login</button>
       </form>
 
-      <a href="registrationform.php" class="btn btn-secondary mt-3">Create New User</a>
   </div>
 </body>
 </html>
